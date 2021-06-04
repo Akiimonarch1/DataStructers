@@ -1,0 +1,22 @@
+def binarysearch(l,h,n,s):
+    if(l<h):
+        m=(l+h)//2
+        if(n[m]==s):
+            return m
+        elif(n[m]>s):
+            h=m
+            m=(l+h)//2
+            return binarysearch(l,h,n,s)
+        else:
+            l=m
+            m=(l+h)//2
+            return binarysearch(l,h,n,s)
+    return False
+n=list(map(int,input().split()))
+s=int(input())
+l=0
+h=len(n)-1
+if s not in n:
+    print("Not in List")
+else:
+    print(binarysearch(l,h,n,s))
